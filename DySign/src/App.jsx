@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import {Navbar, Hero, Test, Contributors, Home} from './components'
+import {Navbar, Hero, Test, Contributors, Home, Result} from './components'
 
 const App = () => {
   return (
@@ -9,6 +9,7 @@ const App = () => {
         <Routes>
           <Route exact path = "/" element={<Home />} />
           <Route path = "/test" element = {<Test />} />
+          <Route path = "/result" element = {<Result />} />
         </Routes>
       </BrowserRouter>
       

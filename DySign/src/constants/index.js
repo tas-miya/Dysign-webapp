@@ -14,7 +14,7 @@ export const navlinks = [
         title: "Learn",
     },
     {
-        id: "test",
+        id: "Test",
         title: "Take Test",
     }
 ]
@@ -63,20 +63,50 @@ export const aboutus = [
     }
 ]
 
-// export const socials = [
-//     {
-//         id: "facebook",
-//         title: "Facebook",
-//         logo: <Facebook />
-//     },
-//     {
-//         id: "instagram",
-//         title: "Instagram",
-//         logo: <Instagram />
-//     },
-//     {
-//         id: "Email",
-//         title: "Email",
-//         logo: <Email />
-//     }
-// ]
+export const words = [
+    {
+        id: 0,
+        word: "Swarm",
+    },
+    {
+        id: 1,
+        word: "Doctor",
+    },
+    {
+        id: 2,
+        word: "Lawyer",
+    },
+    {
+        id: 3,
+        word: "Children",
+    },
+    {
+        id: 4,
+        word: "Babies",
+    },
+    {
+        id: 5,
+        word: "Grapefruit",
+    },
+    {
+        id: 6,
+        word: "Squirm",
+    },
+    {
+        id: 7,
+        word: "Birthday",
+    },
+    {
+        id: 8,
+        word: "Grandmother",
+    },
+    {
+        id: 9,
+        word: "Holiday",
+    },
+    // {
+    //     id: 10,
+    //     word: "Upload",
+    // }
+    
+]

@@ -32,7 +32,7 @@ const Navbar = () => {
                 <li
                   key = {nav.id}
                   onClick = {() => setActive(nav.title)}>
-                  <a href = {`#${nav.id}`} className={`font-roboto cursor-pointer text-[16px] leading-loose text-center ${active === nav.title? " text-salmon font-bold":"text-cinerous"} ${index === navlinks.length -1? "mb-0" : "mb-4"}`}>{nav.title}</a>
+                  <a href = {`${nav.id}`} className={`font-roboto cursor-pointer text-[16px] leading-loose text-center ${active === nav.title? " text-salmon font-bold":"text-cinerous"} ${index === navlinks.length -1? "mb-0" : "mb-4"}`}>{nav.title}</a>
                 </li>
               ))}
             </ul>

@@ -5,8 +5,10 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Hero = () => {
 
+  const navigate = useNavigate();
+
   const navtotest = () => {
-    navigate('/test')
+    navigate('/Test')
   };
 
   return (
@@ -29,9 +31,9 @@ const Hero = () => {
 
       {/* button */}
       <div className='w-screen h-[90px] flex justify-center items-center'>
-        <button onClick={navtotest} className={`${styles.herobutton}`}>
+        <div onClick={navtotest} className={`${styles.herobutton}`}>
           Take Test
-        </button>
+        </div>
       </div>
     </div>
   )

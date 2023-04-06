@@ -4,8 +4,8 @@ import { info, commonsigns, aboutus, navlinks } from '../constants'
 import { Facebook, Instagram, Email } from '../constants/icons.jsx'
 const Contributors = () => {
   return (
-    <div className='w-screen'>
-        {/* <p className = 'bg-cinerous text-center text-almond uppercase font-roboto font-light text-[16px]'>Contributors</p> */}
+    <div className='w-screen bg-almond'>
+        
         <div className='h-[100px] flex pr-5 pl-5 bg-cinerous justify-around items-center bg-fixed'>
             <img src={TMC} alt='TMC logo' className='object-scale-down w-1/3 h-1/3' />
             <img src={CIC} alt='CIC logo' className='object-scale-down w-1/3 h-1/3' />
@@ -24,8 +24,6 @@ const Contributors = () => {
             Learn More
           </div>
         </div>
-
-        {/* <div className='h-[20px]' /> */}
         
          {/* FAQs and Signs */}
         <div className='h-[300px] bg-flame flex-wrap text-almond font-roboto flex justify-center items-center pt-5'>
@@ -43,7 +41,7 @@ const Contributors = () => {
 
           {/* button */}
           <div className='w-screen h-[80px] flex justify-center items-center'>
-            <div className='xs:w-[120px] h-[40px] bg-almond rounded-2xl cursor-pointer font-roboto font-bold text-center text-cinerous flex justify-center items-center'>
+            <div className='xs:w-[120px] h-[40px] bg-almond rounded-2xl cursor-pointer font-roboto font-bold text-center text-flame flex justify-center items-center'>
               Take Test
             </div>
           </div>
