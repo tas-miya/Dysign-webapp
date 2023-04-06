@@ -148,6 +148,7 @@ def distances_spatial(img):
         return None
     return [np.mean(x_lst), np.mean(y_lst), np.mean(w_lst), np.mean(h_lst), np.mean(dist_lst)]
 
+#------------------------------------
 def extract_features(words_lst):
     df = pd.DataFrame(columns=['curvature','strokewidth','density','x','y','w','h','distance'])
     for word in words_lst:
@@ -164,6 +165,9 @@ def extract_features(words_lst):
         new_row = [curv, sw, dens, x,y,w,h,dist]
         df.loc[len(df)] = new_row
     return df
+
+    #------------------------------------
+
 def cleaning(img):
         thresh = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
         #horizontal lines
