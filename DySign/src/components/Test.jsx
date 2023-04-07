@@ -17,7 +17,7 @@ const Test = () => {
   // }
   // function Upload() {
     const [selectedFile, setSelectedFile] = useState(null);
-    const [result, setResult] = useState(null);
+    const [prediction, setPrediction] = useState(null);
   
     // const navigate = useNavigate();
   
@@ -25,45 +25,32 @@ const Test = () => {
       setSelectedFile(event.target.files[0]);
     };
   
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-  
-      // Load the trained TensorFlow.js model
-      const model = await tf.loadLayersModel('./dysignIncModel.h5');
-  
-      // Preprocess the uploaded image
-      const image = await preprocessImage(selectedFile);
-  
-      // Make predictions using the loaded model
-      const predictions = await model.predict(image).data();
-  
-      // Display the result to the user
-      setResult({ prediction: predictions.map(p => (p * 100) + '%') });
-  
-      // Navigate to Result component and pass predicted value
-      navigate('/Result', { state: { prediction: predictions.map(p => (p * 100) + '%') } });
-    };
-  
-    const preprocessImage = async (file) => {
-      const image = document.createElement('img');
-      const reader = new FileReader();
-  
-      return new Promise((resolve, reject) => {
-        reader.onload = () => {
-          image.onload = () => {
-            const tensor = tf.browser.fromPixels(image)
-              .resizeNearestNeighbor([150, 150])
-              .expandDims()
-              .toFloat()
-              .div(255);
-            resolve(tensor);
-          };
-          image.src = reader.result;
-        };
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
-    };
+    const handleSubmit = async () => {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      try {
+        const response = await fetch('http://localhost:5000/predict', {
+          method: 'POST',
+          body: formData
+        });
+    
+        if (response.status !== 200) {
+          throw new Error(`Unexpected response status: ${response.status}`);
+        }
+    
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new TypeError("Response was not in JSON format");
+        }
+    
+        const data = await response.json();
+        setPrediction(data.prediction);
+        console.log(data.prediction)
+        navigate('/result', { state: { prediction: data.prediction } });
+      } catch (error) {
+        console.error(error);
+      }
+    }
   // }
 
   return (
@@ -80,10 +67,10 @@ const Test = () => {
       <div className={`${ind === words.length - 1 ? "flex" : "hidden"} bg-flame h-full justify-center flex-col items-center font-roboto font-bold`}>
         <p className='text-[20px] text-white text-center p-5'>Wohoo! <br /> You Reached The End! <br /> Now Upload What You Wrote</p>
         
-        <form onSubmit={handleSubmit} className='flex items-center space-x-6 flex-col justify-center'>
-          <input type = "file" onChange={handleFileChange} className='' />
-          <button className='w-1/4 h-[40px] bg-almond rounded-3xl cursor-pointer text-center pt-2 text-flame' type="submit">Upload</button>
-        </form>
+        <div className='w-[380px] h-[100px]'>
+        <input type="file" onChange={handleFileChange} />
+        <button className='w-[380px] h-[100px] bg-black rounded-full font-montserrat font-bold text-primary text-[50px] text-center py-[10px] cursor-pointer' onClick={handleSubmit}>Upload</button>
+      </div>
       </div>
     </div>
   )
