@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function Result({ location }) {
     
     //const { prediction } = location.state || {}; // assign an empty object as a fallback
+    console.log(location.state)
     const prediction = location?.state?.prediction;
     const [halfway, setHalfway] = useState(false);
     const [final, setFinal] = useState(false);

@@ -45,7 +45,8 @@ const Test = () => {
     
         const data = await response.json();
         setPrediction(data.prediction);
-        console.log(data.prediction)
+        console.log("Prediciton received from model api: ")
+        console.log(prediction)
         navigate('/result', { state: { prediction: data.prediction } });
       } catch (error) {
         console.error(error);
