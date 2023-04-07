@@ -24,26 +24,26 @@ function Result({ location }) {
 
     const roundPred = prediction ? (prediction * 100).toFixed(2) : null;
   return (
-    <div className='w-screen h-screen bg-orange flex flex-col justify-center items-center pt-[200px]'>
+    <div className='w-screen h-screen bg-almond flex flex-col justify-center items-center font-roboto text-center'>
         {
             !final ?
             <>
-            <div className='font-montserrat font-extrabold text-[50px] text-black text-center'>
+            <div className='font-bold text-[50px] text-black text-center'>
             Now We Wait!<br /> 
-            <div className={`${halfway ? "transition ease-linear duration-100 text-black" : "text-orange"}`}>
+            <div className={`${halfway ? "transition ease-linear duration-100 text-black" : "text-almond"}`}>
                 Any Moment Now
             </div>
-            </div>
-            <div on className='animate-pulse font-montserrat font-extrabold text-[100px] text-black text-center'>
+            <div on className='animate-pulse font-bold text-black text-center text-[100px]'>
                 . . .
+            </div>
             </div>
             </>
             :
-            <div className='result-in font-montserrat font-extrabold text-center'>
-                <div className='text-[50px] text-black'>
-                {roundPred}% Neurodivergent! <br /><br /><br />
+            <div className='result-in font-bold'>
+                <div className='text-[40px] text-black'>
+                {roundPred}% <br/> Neurodivergent! <br /><br /><br />
                 </div>
-                <div className=' text-[35px] text-black'>
+                <div className=' text-[30px] text-black'>
                 And there are so many more divergents like you!<br />
                 Wanna know more<br /><br />
                 <span className='animate-pulse inline-flex w-[80px] h-[40px] cursor-pointer' onClick={navtohome}>

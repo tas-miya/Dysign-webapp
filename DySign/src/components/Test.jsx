@@ -68,9 +68,18 @@ const Test = () => {
       <div className={`${ind === words.length - 1 ? "flex" : "hidden"} bg-flame h-full justify-center flex-col items-center font-roboto font-bold`}>
         <p className='text-[20px] text-white text-center p-5'>Wohoo! <br /> You Reached The End! <br /> Now Upload What You Wrote</p>
         
-        <div className='w-[380px] h-[100px]'>
-        <input type="file" onChange={handleFileChange} />
-        <button className='w-[380px] h-[100px] bg-black rounded-full font-montserrat font-bold text-primary text-[50px] text-center py-[10px] cursor-pointer' onClick={handleSubmit}>Upload</button>
+        <div className='w-full h-1/4 flex flex-col items-center px-3'>
+        <input 
+        type="file" 
+        onChange={handleFileChange} 
+        className='block w-full text-sm text-white ml-20
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-full file:border-0
+        file:text-sm file:font-semibold
+        file:bg-violet-50 file:text-flame
+        hover:file:bg-violet-100'/>
+        <br />
+        <button className='xs:w-1/2 h-[50px] bg-almond rounded-3xl font-roboto font-bold text-flame text-[20px] text-center py-2 cursor-pointer' onClick={handleSubmit}>Upload</button>
       </div>
       </div>
     </div>
