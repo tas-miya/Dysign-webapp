@@ -226,8 +226,10 @@ def predict():
         
     prediction = model.predict_proba(df_test)
     #print(prediction)
-    finalP=np.mean(prediction)
+    finalP=((np.sum(prediction)-np.min(prediction))/(np.max(prediction)))/100
+    secP=np.sum(prediction)/len(prediction)
     print(finalP)
+    print(secP)
     
     # return prediction as JSON
     response = jsonify({'prediction': [[float(finalP)]]})
