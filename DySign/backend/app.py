@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from PIL import Image
 import tensorflow as tf
 import cv2
@@ -15,6 +16,8 @@ from io import BytesIO
 
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "https://iqrasiddiqui.github.io/dysign"}})
+
 
 # load the model
 model = joblib.load('Wmlpmodel.pkl')
@@ -27,27 +30,27 @@ def convert_to_jpg(file):
     elif file.filename.lower().endswith('.png'):
         # Convert PNG to JPG
         image = convert_png_to_jpg(file)
-    
+
     return image
 def convert_png_to_jpg(file):
     # Convert PNG file to JPG using OpenCV
     img = cv2.imdecode(np.frombuffer(file.read(), np.uint8), cv2.IMREAD_UNCHANGED)
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    
+
     # Convert RGBA to RGB if PNG has transparency channel
     if img_rgb.shape[2] == 4:
         alpha_channel = img_rgb[:, :, 3]
         img_rgb = cv2.cvtColor(img_rgb, cv2.COLOR_RGBA2RGB)
         img_rgb[alpha_channel == 0] = [255, 255, 255]  # Convert transparent pixels to white
-    
+
     # Convert numpy array to PIL Image
     img_pil = Image.fromarray(img_rgb)
-    
+
     # Save the PIL Image as JPG in memory
     jpg_io = io.BytesIO()
     img_pil.save(jpg_io, 'JPEG')
     jpg_io.seek(0)
-    
+
     # Return the JPG image
     return Image.open(jpg_io)
 
@@ -72,7 +75,7 @@ def extract_words(img):
         roi = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=2)
         roi_cnts = cv2.findContours(roi, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         roi_cnts = roi_cnts[0] if len(roi_cnts) == 2 else roi_cnts[1]
-        # 
+        #
         count = 1
         for c in roi_cnts:
             x, y, w, h = cv2.boundingRect(c)
@@ -88,7 +91,7 @@ def preprocess_image(img):
     #img = cv2.resize(img, (150, 150))
 
     # convert the image to an array
-    
+
     # resize the image to (150, 150) using cv2
     img = cv2.resize(img, (150, 150))
 
@@ -240,11 +243,11 @@ def predict():
     # check if request contains file
     if 'file' not in request.files:
         return 'No file uploaded', 40001
-        
-    
+
+
     # get uploaded file
     file = request.files['file']
-    
+
     # check file extension
     if file.filename.lower().endswith(('.pdf', '.png')):
         # convert PDF or PNG to JPG
@@ -252,7 +255,7 @@ def predict():
     else:
         # read image file and convert to numpy array
         img = Image.open(file.stream)
-    
+
     # preprocess image and run model prediction
     # replace the following with your actual model code
     #img_arr = preprocess_image(img_arr) # replace with your preprocessing code
@@ -276,14 +279,14 @@ def predict():
 
     # for wrd in wrdLst:
     #     img_array = preprocess_image(wrd)
-        
+
     prediction = model.predict_proba(df_test)
     #print(prediction)
     finalP=((np.sum(prediction)-np.min(prediction))/(np.max(prediction)))/100
     secP=np.sum(prediction)/len(prediction)
     print(finalP)
     print(secP)
-    
+
     # return prediction as JSON
     response = jsonify({'prediction': [[float(finalP)]]})
     response.headers.add('Access-Control-Allow-Origin', '*')
