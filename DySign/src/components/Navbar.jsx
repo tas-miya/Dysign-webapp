@@ -1,44 +1,61 @@
-import { useState } from 'react'
-import {header, menu, logo} from "../assets"
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { logo } from '../assets'
 import { navlinks } from '../constants'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = () => {
 
-  const [active, setActive] = useState("Home");
-  const [toggle, setToggle] = useState(false);
+  const [toggle, settoggle] = useState(0);
+  const [active, setactive] = useState('/')
+  const navigate = useNavigate()
+
+  const navtohome = () => {
+    navigate('/')
+  };
+
+
   return (
-    <div className='flex mb-4'>
+    <nav id = 'navbar' className={`sm:h-40 z-10 w-full absolute flex justify-between  px-4 sm:px-8 font-montserrat ${toggle? "max-ss:h-screen max-ss:bg-yellow max-ss:bg-opacity-30 max-ss:items-start max-ss:pt-6" : "h-20 items-center"}`} onClick={() => settoggle(!toggle)}>
+        <img src={logo} className='cursor-pointer w-1/5 md:w-1/6' onClick={navtohome} />
 
-      {/* bg */}
-      <div className='w-screen h-[360px] absolute  bg-navbar-header bg-fixed bg-no-repeat bg-250 bg-right-top' />
+        <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+        {navlinks.map((nav, index) => (
+          <li
+            key={nav.id}
+            onClick={() => setactive(nav.id)}
+          >
+            <a href={`${nav.id}`} className={`font-bold cursor-pointer text-[16px] ${
+              active === nav.id ? "text-orange" : "text-secondary"
+            } ${index === navlinks.length - 1 ? "mr-0" : "mr-10"}`}>{nav.title}</a>
+          </li>
+        ))}
+        </ul>
 
-      {/* logo & menu */}
-      <div className={`${!toggle? "hidden":"bg-cinerous opacity-70 w-screen h-[1480px] absolute"}`} onClick={()=>setToggle(!toggle)}/>
+        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <FontAwesomeIcon icon = {faBars} style={{color: "#5b5f97"}} className={`fa-md ${toggle ? 'rotate-90' : 'rotate-0'}`} onClick={() => settoggle(!toggle)} />
 
-      <div className='flex p-[20px] z-50 w-screen ss:h-[150px] justify-between'>
-           <img src = {logo} alt = 'header' className={`w-[83px] h-[31px] ${toggle? "opacity-40" : "opacity-100"}`}/>
-   
-           <img 
-           src = {menu} 
-           alt = 'menu' 
-           className={`${toggle ? "rotate-90": ""} w-[20px] h-[20px]`}
-           onClick={() => setToggle(!toggle)}/>
-
-
-           <div className={`${!toggle? "hidden" : "flex"} p-6 bg-almond absolute top-20 right-0 mx-4 my-2 min-w-[200px] min-h-[250px]  rounded-xl`}>
-            
-            <ul className='list-none flex justify-center items-center flex-1 flex-col'>
-              {navlinks.map((nav, index) => (
-                <li
-                  key = {nav.id}
-                  onClick = {() => setActive(nav.title)}>
-                  <a href = {`${nav.id}`} className={`font-roboto cursor-pointer text-[16px] leading-loose text-center ${active === nav.title? " text-salmon font-bold":"text-cinerous"} ${index === navlinks.length -1? "mb-0" : "mb-4"}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
-           </div>
-       </div>
-    </div>
+        <div
+          className={`${
+            !toggle ? "hidden" : "flex"
+          } p-6 bg-yellow absolute top-20 right-0 mx-4 my-2 w-1/2 h-44 rounded-xl sidebar`}
+        >
+          <ul className="list-none flex justify-center items-center flex-1 flex-col">
+            {navlinks.map((nav, index) => (
+              <li
+                key={nav.id}
+                onClick={() => setactive(nav.id)}
+              >
+                <a href={`${nav.id}`} className={`font-bold cursor-pointer text-[14px] ${
+                  active === nav.id ? "text-white" : "text-secondary"
+                } ${index === navlinks.length - 1 ? "mb-0" : "mb-4"}`}>{nav.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
   )
 }
 

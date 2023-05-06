@@ -1,6 +1,7 @@
 /* font */
 @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
 /* @tailwind base;
 @tailwind components;
 @taildwind utilities; */
@@ -23,7 +24,94 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  /* -webkit-text-size-adjust: 100%; */
+}
+
+/* page1 to page2 transition */
+@keyframes pageTransition {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.75);
+  }
+}
+
+.page01-transition {
+  animation: pageTransition 10s linear;
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {transform: translate3d(0, -500px, 0);}
+  100% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes bounceOut {
+  0% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(0, -500px, 0);}
+}
+
+@keyframes result-in {
+  from {transform: translate3d(-1000px, 0, 0);}
+  to {transform: translate3d(0, 0, 0);}
+}
+@keyframes bounceSpecial {
+  0% {transform: translate3d(0, -500px, 0);}
+  20% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(0, -500px, 0);}
+}
+
+.text-bounce-in {
+  animation: bounceIn 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* animation-direction: top; */
+}
+.text-bounce-out {
+  animation: bounceOut 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.special-bounce {
+  animation: bounceSpecial 10s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.result-in {
+  animation: result-in 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.sidebar {
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 a {

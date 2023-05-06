@@ -2,11 +2,11 @@ import { Facebook, Instagram, Email } from "./icons"
 
 export const navlinks = [
     {
-        id: "home",
+        id: "/",
         title: "Home",
     },
     {
-        id: "about",
+        id: "aboutus",
         title: "About",
     },
     {
@@ -14,9 +14,29 @@ export const navlinks = [
         title: "Learn",
     },
     {
-        id: "Test",
+        id: "instructions",
         title: "Take Test",
     }
+]
+
+export const herotext = [
+    {
+        id: 0,
+        quote: "“My child used to be so difficult and hyper and he used to struggle in school. Now he has improved so much and he gets good grades too!”"
+    },
+    {
+        id: 1,
+        quote: "“Everyone said my child was lazy because he didn’t study. But he was not lazy, he was Dyslexic and ADHD. Now he is so much better because we got professional help.”"
+
+    },
+    {
+        id: 2,
+        quote: "“When I found out so many other kids also struggle like my child, I was so relieved that my child is not the only one! With extra classes, she improved so much, she IS as good as other children now!”"
+    },
+    {
+        id: 3,
+        quote: "“I was so relieved to know this was not a big issue, he only needs extra support. He is so intelligent but so hyper - now is so much better.”"
+    },
 ]
 
 export const info = [
@@ -40,20 +60,48 @@ export const info = [
 export const commonsigns = [
     {
         id: 1,
-        s: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        s: "Smart but gets bad grades."
     },
     {
         id: 2,
-        s: "labore et dolore magna aliqua. Ut enim ad minim veniam."
+        s: "Has a lot of energy and comes off as hyper."
     },
     {
         id: 3,
-        s: "laboris nisi ut aliquip ex ea commodo consequat"
+        s: "Make basic spelling errors with patters."
     },
     {
         id: 4,
-        s: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
-    }
+        s: "Reads very slowly."
+    },
+    {
+        id: 5,
+        s: "Can talk a lot but avoids writing."
+    },
+    {
+        id: 6,
+        s: "Hard time following instructions."
+    },
+    {
+        id: 7,
+        s: "Have trouble differentiating left from right."
+    },
+    // {
+    //     id: 8,
+    //     s: "Struggle with copying from whiteboard."
+    // },
+    // {
+    //     id: 9,
+    //     s: "Have trouble reading clocks telling time."
+    // },
+    // {
+    //     id: 10,
+    //     s: "Prone to emotional outbursts."
+    // },
+    // {
+    //     id: 11,
+    //     s: "Trouble remembering game rules."
+    // }
 ]
 
 export const aboutus = [
@@ -66,42 +114,46 @@ export const aboutus = [
 export const words = [
     {
         id: 0,
-        word: "Swarm",
+        word: "Copy The Words You See On Screen On Your Paper"
     },
     {
         id: 1,
-        word: "Doctor",
+        word: "Swarm",
     },
     {
         id: 2,
-        word: "Lawyer",
+        word: "Doctor",
     },
     {
         id: 3,
-        word: "Children",
+        word: "Lawyer",
     },
     {
         id: 4,
-        word: "Babies",
+        word: "Children",
     },
     {
         id: 5,
-        word: "Grapefruit",
+        word: "Babies",
     },
     {
         id: 6,
-        word: "Squirm",
+        word: "Grapefruit",
     },
     {
         id: 7,
-        word: "Birthday",
+        word: "Squirm",
     },
     {
         id: 8,
-        word: "Grandmother",
+        word: "Birthday",
     },
     {
         id: 9,
+        word: "Grandmother",
+    },
+    {
+        id: 10,
         word: "Holiday",
     },
     // {

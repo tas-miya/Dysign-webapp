@@ -1,110 +1,138 @@
-import React from 'react'
-import { Navbar, Hero, Contributors } from './index'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {CIC, TMC, READ} from '../assets'
-import { info, commonsigns, aboutus, navlinks } from '../constants'
-import { Facebook, Instagram, Email } from '../constants/icons.jsx'
+import { Navbar, Hero } from '.'
+import { bg, bg2, bgbs, herobs, heross, comsym, footer } from '../assets'
+import { commonsigns, navlinks } from '../constants'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { Facebook, Instagram, Email } from '../constants/icons'
 
 const Home = () => {
 
+  const [activeguide, setactiveguide] = useState(0);
+  const [activetips, setactivetips] = useState(0);
   const navigate = useNavigate();
+
+  const navtoaboutus = () => {
+    navigate('/aboutus')
+  };
+  const navtolearn = () => {
+    navigate('/learn');
+  };
   const navtotest = () => {
-    navigate('/Test')
-  }
+    navigate('/instructions')
+  };
+
   return (
-    <div className='w-screen bg-almond'>
+    <div className='w-full font-montserrat'>
+        <img id = 'herobg' src = {window.innerWidth >= 620? herobs : heross} className='object-cover absolute' />
         <Navbar />
         <Hero />
-        {/* <Contributors /> */}
         
-        <div className='h-[100px] flex pr-5 pl-5 bg-cinerous justify-around items-center bg-fixed'>
-            <img src={TMC} alt='TMC logo' className='object-scale-down w-1/3 h-1/3' />
-            <img src={CIC} alt='CIC logo' className='object-scale-down w-1/3 h-1/3' />
-            <img src={READ} alt='READ logo' className='object-scale-down w-1/4 h-1/4' />
+        {/* did you know */}
+        <div className='h-64 sm:h-72 lg:h-96 flex flex-col justify-center px-4 md:px-8 sm:px-8 text-secondary space-y-4'>
+          <h1 className='font-black text-[24px] md:text-[44px]'>Did You Know?</h1>
+          <p className='font-bold text-[14px] md:text-[24px] sm:w-2/3'>Dyslexia is a very common Learning Difficulty. 1 in 10 children struggle with it. Dyslexia can make it hard for children to perform well in school, but it is very simple to help these children improve.</p>
+          <button className='w-1/2 h-10 sm:w-1/4 md:h-16 font-bold text-[14px] md:text-[24px] border-secondary text-secondary hover:bg-orange hover:text-white rounded-full flex items-center justify-center' onClick = {navtolearn}>
+          <p>Learn More</p>
+          <FontAwesomeIcon icon={faChevronRight} className='animate-pulse' />
+          <FontAwesomeIcon icon={faChevronRight} className='animate-pulse' />
+          <FontAwesomeIcon icon={faChevronRight} className='animate-pulse' />
+          </button>
         </div>
 
-        {/* Information */}
-        <div className='bg-white'>
-          {info.map((info, index) => (
-              <ul className='list-none flex justify-center items-center flex-cols pr-5 pl-5 h-[120px]'>
-                  <li key={info.id} className='w-1/3 h-[100px] font-handrawn text-[30px] flex items-center justify-end pr-[8px]'>{info.q}</li>
-                  <li key={info.q} className='w-full h-[100px] pl-2 line-clamp-2 leading-relaxed font-roboto text-[14px] flex items-center'>{info.a}</li>
-              </ul>
+        
+        <img src={comsym} className='absolute' />
+        <div className='relative w-full h-72 sm:h-[25rem] lg:h-[60rem] font-montserrat text-white px-4 sm:px-8 flex flex-col justify-center pt-4 overflow-y-auto'>
+          <h1 className='font-black text-[24px] md:text-[44px]'>Some Common Signs</h1><br/>
+          {commonsigns.map((cs, index) => (
+            <li key={cs.id} className='flex-shrink-0 font-bold text-[14px] md:text-[24px] leading-relax'>
+              {cs.s}
+            </li>
           ))}
-          {/* button */}
-          <div className='h-[80px] flex justify-center items-center'>
-            <div className='xs:w-[120px] h-[40px] bg-flame rounded-2xl cursor-pointer font-roboto font-bold text-center text-almond flex justify-center items-center'>
-              Learn More
-            </div>
-          </div>
         </div>
+        <div className='w-full h-64 max-ss:hidden lg:hidden bg-white absolute' />
         
-         {/* FAQs and Signs */}
-        <div className='h-[300px] bg-flame flex-wrap text-almond font-roboto flex justify-center items-center pt-5'>
-          <div className='flex justify-center items-center'>
-            <img src = {READ} alt='temp' className='object-scale-down w-1/3 h-1/3 pr-3' />
-            <ul className='list-disc flex flex-wrap w-3/5 h-full pl-5'>
-              <h2 className='font-bold text-[18px] text-center leading-loose'>Common Sign</h2>
-              {commonsigns.map((cs, index) => (
-                <li key={cs.id} className='text-[12px] '>
-                  {cs.s}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className='h-[70vh] font-montserrat flex flex-col sm:flex-wrap'>
+          <div className='w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col justify-end'>
 
-          {/* button */}
-          <div className='w-screen h-[80px] flex justify-center items-center'>
-            <div className='xs:w-[120px] h-[40px] bg-almond rounded-2xl cursor-pointer font-roboto font-bold text-center text-flame flex justify-center items-center' onClick={navtotest}>
-              Take Test
+            {/* message from the therapist */}
+            <div className='w-full h-3/4 flex flex-col justify-end pt-4 space-y-3 px-4 lg:px-8 text-center text-secondary'>
+              <h1 className='text-[24px] sm:text-[30px] font-black'>Message From A Therapist</h1>
+              <p className='text-[12px] sm:text-[18px] font-bold'>“Many people around you will judge you and your child without understanding your situation, but only a psychologist will hear you without any judgment. They are here to help you. Talk to a professional and help your child improve before the issue gets worse.”</p>
+              <p className='font-black text-[12px]'>Raazieh Fatima, Founder TMS</p>
             </div>
+
+            <div className='w-full h-1/4 flex items-end space-x-3 px-2 font-black text-white text-[14px] justify-center'>
+
+            <button className='w-1/3 h-10 sm:w-1/3 sm:h-16 font-bold text-[16px] md:text-[24px] border-secondary text-secondary hover:bg-orange hover:text-white rounded-full flex items-center justify-center' onClick = {navtolearn}>
+            <p>Learn More</p>
+            </button>
+            <button className='w-1/3 h-10 md:w-1/3 sm:h-16 font-bold text-[16px] md:text-[24px] text-white bg-orange md:bg-yellow hover:bg-orange rounded-full' onClick={navtotest}>
+            Take Test
+            </button>
+              {/* <div className='w-1/2 h-2/3 bg-orange flex items-center justify-center text-center transition ease-in-out hover:-translate-y-1 hover:scale-110 rounded-xl' onClick={() => setactiveguide(1)}>Guide for<br/> Parents</div>
+
+              <div className='w-1/2 h-2/3 bg-orange flex items-center justify-center text-center transition ease-in-out hover:-translate-y-1 hover:scale-110 rounded-xl' onClick={() => setactivetips(1)}>Tips for Taking<br/> the Test</div> */}
+            </div>
+
+            
+          </div>
+          <div className='w-full sm:w-1/2 h-1/2 sm:h-full  flex flex-col items-center justify-end space-y-3 px-4 lg:px-8 text-center text-secondary'>
+            <div className = 'w-full h-3/4 flex flex-col justify-center pt-4 space-y-3 px-4 lg:px-8 text-center text-secondary'>
+              <h1 className='text-[24px] sm:text-[30px] font-black'>Message From The Team</h1>
+              <p className='text-[12px] sm:text-[18px] font-bold'>Hello! We are a team of 3 students from Habib University and this our year long work. We hope this helps you on your journey of exploring Dyslexia! To know more about us, go to</p>
+            </div>
+            <button className='w-1/2 h-10 sm:w-1/2 sm:h-16 font-bold text-[16px] md:text-[24px] bg-orange text-white rounded-full flex items-center justify-center' onClick={navtoaboutus}>
+            <p>About Us</p>
+            <FontAwesomeIcon icon={faChevronRight} className='animate-pulse' />
+            <FontAwesomeIcon icon={faChevronRight} className='animate-pulse' />
+            <FontAwesomeIcon icon={faChevronRight} className='animate-pulse' />
+            </button>
+            {/* <h1 className='font-black text-[16px]'>Collaborators</h1>
+            <div className='flex font-bold text-[12px] space-x-8'>
+              <p>Raazieh Fatima<br/> (Clinical Psychologist,<br/> Founder TMS Inclusive<br/> School)</p>
+              <p>Maria Ali<br/> (Remedial Therapist)</p>
+            </div>
+            <div className='flex font-bold text-[12px] space-x-8'>
+              <p>Dr. Neelma Bhatti<br/> (Mentor,<br/> Habib University)</p>
+              <p>Dr. Abdul Samad<br/> (Supervisor,<br/> Habib University)</p>
+            </div> */}
           </div>
         </div>
 
-        {/* About us */}
-        <div className='h-[200px] bg-almond flex flex-wrap'>
-          <div className='w-full h-1/2 flex flex-wrap justify-center items-center p-4 font-roboto'>
-            <h2 className='font-bold text-[14px]'>About Us</h2>
-            {aboutus.map((au,index) => (
-              <p key={au.id} className='text-[12px] text-center'>{au.p}</p>
-            ))}
-          </div>
-          <div className='w-full h-1/2 flex flex-wrap justify-center font-roboto items-center p-5 space-y-2'>
-            <h2 className='font-bold text-[14px]'>Contributors</h2>
-            <div className='flex flex-wrap justify-around items-center'>
-              <img src={TMC} alt='TMC logo' className='object-scale-down w-1/3 h-1/3' />
-              <img src={CIC} alt='CIC logo' className='object-scale-down w-1/5 h-1/5' />
-              <img src={READ} alt='READ logo' className='object-scale-down w-1/4 h-1/4' />
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className='w-full h-[100px] bg-cinerous font-roboto flex items-center'>
+        <img src={footer} className='absolute' />
+        <div className='w-full h-44 sm:h-[35vh] md:h-screen relative font-montserrat flex items-end pt-12 sm:pt-12'>
           
           {/* Pages */}
-          <ul className='w-1/3 list-none  text-[10px] cursor-pointer indent-5'>
+          <ul className='w-1/3 list-none text-[10px] sm:text-[20px] cursor-pointer indent-5 sm:indent-16 pb-4 sm:pb-10'>
               {navlinks.map((nav, index) => (
                 <li
                   key = {nav.id}
-                  // onClick = {() => setActive(nav.title)}
+                  onClick = {() => setActive(nav.id)}
                   >
-                  <a href = {`#${nav.id}`} className={`cursor-pointer text-almond font-bold leading-relaxed ${index === navlinks.length -1? "mb-0" : "mb-4"}`}>{nav.title}</a>
+                  <a href = {`${nav.id}`} className={`cursor-pointer text-white font-bold leading-relaxed ${index === navlinks.length -1? "mb-0" : "mb-4"}`}>{nav.title}</a>
                 </li>
               ))}
             </ul>
 
-            <div className='w-2/3 h-full font-roboto text-almond space-y-2 p-3 flex flex-col justify-center'>
-              <h2 className='text-[12px] font-bold text-center'>Soicals</h2>
+            <div className='w-2/3 h-full font-montserrat text-white space-y-2 p-3 flex flex-col justify-center sm:justify-end sm:pb-10 items-center'>
+              <h2 className='text-[12px] sm:text-[24px] font-bold text-center'>Soicals</h2>
               <div className='flex justify-center items-center space-x-3'>
-                <a href = "https://www.facebook.com/groups/2109572699238889" target = "_blank"><Facebook /></a>
-                <a href = "https://www.instagram.com/projectdysign" target = "_blank"><Instagram /></a>
-                <a href = "mailto:project.dysign@outlook.com" target = "_blank"><Email /></a>
+                <a href = "https://www.facebook.com/groups/2109572699238889" target = "_blank">
+                  <Facebook />
+                </a>
+                <a href = "https://www.instagram.com/projectdysign" target = "_blank">
+                  <Instagram />
+                </a>
+                <a href = "mailto:project.dysign@outlook.com" target = "_blank">
+                  <Email />
+                </a>
               </div>
-              <p className='text-[8px] text-center italic pl-8 pr-8'>Every child is different, let's help them grow how they are!</p>
+              <p className='text-[10px] sm:text-[20px] text-center italic px-8 md:w-1/2'>Every child is different, let's help them grow how they are!</p>
             </div>
         </div>
-      </div>
+    </div>
   )
 }
 
