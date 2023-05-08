@@ -40,7 +40,7 @@ const Test = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
     try {
-      const response = await fetch('https://flask-production-2c96.up.railway.app/predict', {
+      const response = await fetch('https://flask-production-2c96.up.railway.app/', {
         method: 'POST',
         body: formData
       });
@@ -69,7 +69,7 @@ const Test = () => {
         {/* page 3 */}
       <div className={`${page === 2? "flex" : "hidden"} w-full h-screen bg-white`}>
       
-        <div className='w-screen h-screen bg-primary py-[50px] overflow-hidden'>
+        <div className='w-screen h-screen bg-white text-black py-[50px] overflow-hidden'>
         <img
         src={ready_circles}
         alt='circles'

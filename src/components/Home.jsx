@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Navbar, Hero } from '.'
 import { bg, bg2, bgbs, herobs, heross, comsym, footer } from '../assets'
 import { commonsigns, navlinks } from '../constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { Facebook, Instagram, Email } from '../constants/icons'
 
 const Home = () => {
 
   // const [activeguide, setactiveguide] = useState(0);
-  // const [activetips, setactivetips] = useState(0);
+  const [firstload, setfirstload] = useState(true);
   const navigate = useNavigate();
 
   const navtoaboutus = () => {
@@ -22,12 +22,25 @@ const Home = () => {
   const navtotest = () => {
     navigate('/instructions')
   };
+  // useEffect(() => {
+  //   return () =>  {setfirstload(false)}
+  // }, []);
 
   return (
-    <div className='w-screen font-montserrat overflow-hidden'>
+    <div className='w-screen h-fit bg-white font-montserrat overflow-hidden'>
         <img id = 'herobg' src = {window.innerWidth >= 620? herobs : heross} className='object-cover w-full absolute' />
         <Navbar />
+
+        {/* <div className={`${firstload === true? "flex" : "hidden"} w-full h-full bg-pink fixed z-5`} onClick={() => setfirstload(false)}>{console.log(firstload)}</div> */}
+
         <Hero />
+
+        <span className='bg-orange sm:w-20 w-16 sm:h-20 h-16 z-10 rounded-full fixed bottom-2 right-2 flex justify-center items-center text-[12px] text-secondary animate-[bounce_5s_ease-in_infinite]'>
+          <div className='w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-yellow absolute cursor-pointer' />
+          <a href="https://hr05940.itch.io/every-child-learns-differently-an-interactive-narrative" className='text-secondary' target='_blank'>
+            <FontAwesomeIcon icon={faGamepad} className='fa-2xl relative'/>
+          </a>
+        </span>
         
         {/* did you know */}
         <div className='h-64 sm:h-72 md:h-screen w-full flex flex-col justify-center px-4 md:pr-4  text-secondary space-y-4'>

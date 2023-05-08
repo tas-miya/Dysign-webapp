@@ -15,6 +15,7 @@ const App = () => {
           <Route path = "/result" element={<Result location={location} />} />
           <Route path = "/learn" element={<Learn />} />
           <Route path = "/aboutus" element={<Aboutus />} />
+          {/* <Route exact path='/game' render={() => window.location.href='./components/game.html'} /> */}
         </Routes>
       
       {/* <div className='w-screen h-screen'>
