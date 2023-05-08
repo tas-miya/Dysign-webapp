@@ -29,7 +29,7 @@ const Test = () => {
       const formData = new FormData();
       formData.append('file', selectedFile);
       try {
-        const response = await fetch('http://localhost:5000/predict', {
+        const response = await fetch('https://dysignserver.azurewebsites.net/predict', {
           method: 'POST',
           body: formData
         });
