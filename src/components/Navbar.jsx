@@ -14,10 +14,10 @@ const Navbar = () => {
   const navtohome = () => {
     navigate('/')
   };
-  const handlenav = () => {
-    setactive(nav.id);
-    navigate('/'+nav.id)
-  }
+  // const handlenav = (nav) => {
+  //   setactive(nav.id);
+  //   navigate(nav.id)
+  // }
 
 
   return (
@@ -27,10 +27,10 @@ const Navbar = () => {
         <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navlinks.map((nav, index) => (
           <li
-            key={nav.id}
-            onClick={() => setactive(handlenav)}
+          key={nav.id}
+          onClick={() => setactive(nav.id)}
           >
-            <a href={`/${nav.id}`} className={`font-bold cursor-pointer text-[16px] ${
+            <a href={`${nav.id}`} className={`font-bold cursor-pointer text-[16px] ${
               active === nav.id ? "text-orange" : "text-secondary"
             } ${index === navlinks.length - 1 ? "mr-0" : "mr-10"}`}>{nav.title}</a>
           </li>
