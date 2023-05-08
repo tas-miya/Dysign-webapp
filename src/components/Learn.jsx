@@ -9,13 +9,13 @@ const Learn = () => {
   return (
     <div className='w-screen h-screen'>
         {/* background setup */}
-        <div className='h-screen bg-white flex flex-col justify-end absolute md:hidden'>
-            <img src={comsym} className='opacity-50'/>
+        <div className='h-full w-full bg-white flex flex-col justify-end overflow-clip md:hidden absolute'>
+            <img src={comsym} className='opacity-50 w-full'/>
         </div>
         <Navbar />
 
         <div className='w-full h-full relative flex flex-col sm:flex-wrap px-4 sm:px-8 pt-20 sm:pt-40 text-secondary'>
-            <h1 className='font-montserrat font-black text-[28px] md:text-[40px] sm:w-1/3 max-sm:text-center'>More About Learning Difficulties</h1>
+            <h1 className='font-montserrat font-black text-[28px] md:text-[44px] sm:w-1/4 max-sm:text-center'>More About Learning Difficulties</h1><br/>
             
             {/* index */}
             <div className='w-full sm:w-1/4 h-1/3 flex flex-col max-sm:items-center pt-4 font-roboto text-secondary text-[12px] md:text-[14px] space-y-1'>
@@ -47,15 +47,15 @@ const Learn = () => {
                     <h3 className='font-black font-montserrat text-[24px]'>Helpful Videos</h3>
                     <div className='w-full h-16 bg-gray-100 bg-opacity-50 shadow-md flex items-center justify-center text-[16px] text-secondary space-x-3 rounded-2xl cursor-pointer'>
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                        <a href='https://www.youtube.com/watch?v=11r7CFlK2sc' className='font-roboto font-bold '>See Dyslexia Differently</a>
+                        <a href='https://www.youtube.com/watch?v=11r7CFlK2sc' target='_blank' className='font-roboto font-bold '>See Dyslexia Differently</a>
                     </div>
                     <div className='w-full h-16 bg-gray-100 bg-opacity-50 shadow-md flex items-center justify-center text-[16px] text-secondary space-x-3 rounded-2xl cursor-pointer'>
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                        <a href='https://www.youtube.com/watch?v=zafiGBrFkRM' className='font-roboto font-bold '>What Is Dyslexia?</a>
+                        <a href='https://www.youtube.com/watch?v=zafiGBrFkRM' target='_blank' className='font-roboto font-bold '>What Is Dyslexia?</a>
                     </div>
                     <div className='w-full h-16 bg-gray-100 bg-opacity-50 shadow-md flex items-center justify-center text-[16px] text-secondary space-x-3 rounded-2xl cursor-pointer'>
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                        <a href='https://www.youtube.com/watch?v=kE3DqJP-nkI' className='font-roboto font-bold '>What Is Dyslexia? | Dyslexia Explained</a>
+                        <a href='https://www.youtube.com/watch?v=kE3DqJP-nkI' target='_blank' className='font-roboto font-bold '>What Is Dyslexia? | Dyslexia Explained</a>
                     </div>
 
                 </div>
@@ -84,7 +84,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://play.google.com/store/apps/details?id=org.learningally.LinkMobile&hl=en&gl=US&pli=1' className='text-secondary font-bold'>Learning Ally</a>
+                            <a href='https://play.google.com/store/apps/details?id=org.learningally.LinkMobile&hl=en&gl=US&pli=1' target='_blank' className='text-secondary font-bold'>Learning Ally</a>
                         </span><br/>
                         This app provides audiobooks for students with dyslexia, ADHD, and other learning difficulties, allowing them to access educational material through auditory channels.
                     </div>
@@ -92,7 +92,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://play.google.com/store/search?q=read%26write&c=apps&hl=en&gl=US' className='text-secondary font-bold'>Read&Write</a>
+                            <a href='https://play.google.com/store/search?q=read%26write&c=apps&hl=en&gl=US' target='_blank' className='text-secondary font-bold'>Read&Write</a>
                         </span><br/>
                         Provides support for students with dyslexia, ADHD, and other learning difficulties by helping them with reading, writing, and research skills. It includes features like text-to-speech, speech-to-text, and word prediction.
                     </div>
@@ -100,7 +100,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://play.google.com/store/search?q=khan%20academy%20kids&c=apps&hl=en&gl=US' className='text-secondary font-bold'>Khan Academy Kids</a>
+                            <a href='https://play.google.com/store/search?q=khan%20academy%20kids&c=apps&hl=en&gl=US' target='_blank' className='text-secondary font-bold'>Khan Academy Kids</a>
                         </span><br/>
                         It offers a wide range of educational videos and exercises designed to help students with learning difficulties build foundational knowledge in subjects like math, science, and history.
                     </div>
@@ -108,7 +108,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://www.scholastic.com/parents/school-success/learn-at-home.html' className='text-secondary font-bold'>Scholastic Learn At Home</a>
+                            <a href='https://www.scholastic.com/parents/school-success/learn-at-home.html' target='_blank' className='text-secondary font-bold'>Scholastic Learn At Home</a>
                         </span><br/>
                         This website provides free daily activities and projects for children in grades PreK-9, making it a great resource for parents who want to keep their children engaged and learning at home.
                     </div>
@@ -119,7 +119,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://play.google.com/store/search?q=my+study+life+-+school+planner&c=apps&hl=en&gl=US' className='text-secondary font-bold'>MyStudyLife</a>
+                            <a href='https://play.google.com/store/search?q=my+study+life+-+school+planner&c=apps&hl=en&gl=US' target='_blank' className='text-secondary font-bold'>MyStudyLife</a>
                         </span>
                         <p className='font-bold text-[12px]'>Planning and Organization</p>
                         This app helps students with ADHD and other learning difficulties stay organized by providing a personalized planner that includes class schedules, assignments, and reminders.
@@ -128,7 +128,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://chrome.google.com/webstore/detail/cowriter/ifajfiofeifbbhbionejdliodenmecna?hl=en' className='text-secondary font-bold'>Co:Writer</a>
+                            <a href='https://chrome.google.com/webstore/detail/cowriter/ifajfiofeifbbhbionejdliodenmecna?hl=en' target='_blank' className='text-secondary font-bold'>Co:Writer</a>
                         </span>
                         <p className='font-bold text-[12px]'>Writing Help</p>
                         
@@ -138,7 +138,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://www.voicedream.com/' className='text-secondary font-bold'>Voice Dream Reader</a>
+                            <a href='https://www.voicedream.com/' target='_blank' className='text-secondary font-bold'>Voice Dream Reader</a>
                         </span>
                         <p className='font-bold text-[12px]'>Reading Help</p>
                         This app provides audiobooks for students with dyslexia, ADHD, and other learning difficulties, allowing them to access educational material through auditory channels.
@@ -147,7 +147,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://www.readworks.org/' className='text-secondary font-bold'>ReadWorks</a>
+                            <a href='https://www.readworks.org/' target='_blank' className='text-secondary font-bold'>ReadWorks</a>
                         </span>
                         <p className='font-bold text-[12px]'>Reading Help</p>
                         This website provides free reading comprehension lessons and materials for students in grades K-12, making it a great resource for parents who want to help their children improve their reading skills.
@@ -156,11 +156,11 @@ const Learn = () => {
                 <br/>
                 <div id='gcp' className='text-secondary space-y-2'>
                     <h3 className='font-black font-montserrat text-[24px]'>Games for Cognition Practice</h3>
-                    <br/>
+                    {/* <br/> */}
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://play.google.com/store/apps/details?id=com.cognifit.app&hl=en&gl=US' className='text-secondary font-bold'>CogniFit</a>
+                            <a href='https://play.google.com/store/apps/details?id=com.cognifit.app&hl=en&gl=US' target='_blank' className='text-secondary font-bold'>CogniFit</a>
                         </span><br/>
                         This app offers brain training games designed to help students with learning difficulties improve cognitive skills like memory, attention, and processing speed.
                     </div>
@@ -168,7 +168,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://www.funbrain.com/' className='text-secondary font-bold'>Funbrain</a>
+                            <a href='https://www.funbrain.com/' target='_blank' className='text-secondary font-bold'>Funbrain</a>
                         </span><br/>
                         This website offers free educational games and activities for children in grades K-8, making it a great resource for parents who want to help their children improve their math and reading skills.
                     </div>
@@ -179,7 +179,7 @@ const Learn = () => {
                     <div>
                         <span className='space-x-2'>
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            <a href='https://www.mathplayground.com/' className='text-secondary font-bold'>Math Playground</a>
+                            <a href='https://www.mathplayground.com/' target='_blank' className='text-secondary font-bold'>Math Playground</a>
                         </span>
                         <br/>
                         This website offers free math games, puzzles, and activities for children in grades 1-6, making it a great resource for parents who want to help their children improve their math skills.

@@ -4,7 +4,7 @@ export const Facebook = () => {
   return (
     <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-4 w-4"
+    className="h-8 w-4 md:w-8"
     fill="#FAE5CF"
     viewBox="0 0 24 24">
     <path
@@ -17,7 +17,7 @@ export const Instagram = () => {
     return (
         <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5"
+    className="h-5 w-5 md:w-8 md:h-8"
     fill="#FAE5CF"
     viewBox="0 0 24 24">
     <path
@@ -30,7 +30,7 @@ export const Email = () => {
     return (
         <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    className="h-6 w-6 md:w-10 md:h-10"
     fill="#FAE5CF"
     viewBox="0 0 24 24">
     <path

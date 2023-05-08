@@ -11,7 +11,7 @@ const Hero = () => {
   };
   
   return (
-    <div className='relative h-screen sm:h-[60rem] lg:h-[90rem] font-montserrat'>
+    <div className='relative h-screen sm:h-[60rem] lg:h-[90rem] font-montserrat overflow-clip'>
 
       {/* info and testimonials */}
         <div className='w-full h-4/5 flex flex-col justify-center sm:justify-end lg:pb-32 items-center lg:items-start md:px-8 lg:pt-40 pt-32 sm:space-y-4'>
@@ -40,11 +40,11 @@ const Hero = () => {
 
         {/* acknowledgments */}
         {/* <h className='text-center text-[14px]'>Special Thanks to</h> */}
-        <div className='w-full h-1/5 flex items-center justify-between pr-2'>
-          <img src={circles} className='h-3/5 sm:h-3/4'/>
-          <img src={CIC} className='w-1/5 sm:w-1/6' />
-          <img src={TMC} className='w-2/5 sm:w-2/6' />
-          <img src={READ} className='w-1/5' />
+        <div className='w-full h-1/5 flex items-center justify-between pr-4'>
+          <img src={circles} className='h-3/5 md:h-3/4'/>
+          <img src={CIC} className='w-1/5 md:w-48' />
+          <img src={TMC} className='w-2/5 md:w-96' />
+          <img src={READ} className='w-1/5 md:w-60' />
         </div>
     </div>
   )

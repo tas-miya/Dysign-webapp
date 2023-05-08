@@ -14,19 +14,23 @@ const Navbar = () => {
   const navtohome = () => {
     navigate('/')
   };
+  const handlenav = () => {
+    setactive(nav.id);
+    navigate('/'+nav.id)
+  }
 
 
   return (
     <nav id = 'navbar' className={`sm:h-40 z-10 w-full absolute flex justify-between  px-4 sm:px-8 font-montserrat ${toggle? "max-ss:h-screen max-ss:bg-yellow max-ss:bg-opacity-30 max-ss:items-start max-ss:pt-6" : "h-20 items-center"}`} onClick={() => settoggle(!toggle)}>
-        <img src={logo} className='cursor-pointer w-1/5 md:w-1/6' onClick={navtohome} />
+        <img src={logo} className='cursor-pointer w-1/5 md:w-40' onClick={navtohome} />
 
         <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navlinks.map((nav, index) => (
           <li
             key={nav.id}
-            onClick={() => setactive(nav.id)}
+            onClick={() => setactive(handlenav)}
           >
-            <a href={`${nav.id}`} className={`font-bold cursor-pointer text-[16px] ${
+            <a href={`/${nav.id}`} className={`font-bold cursor-pointer text-[16px] ${
               active === nav.id ? "text-orange" : "text-secondary"
             } ${index === navlinks.length - 1 ? "mr-0" : "mr-10"}`}>{nav.title}</a>
           </li>

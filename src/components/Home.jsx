@@ -9,8 +9,8 @@ import { Facebook, Instagram, Email } from '../constants/icons'
 
 const Home = () => {
 
-  const [activeguide, setactiveguide] = useState(0);
-  const [activetips, setactivetips] = useState(0);
+  // const [activeguide, setactiveguide] = useState(0);
+  // const [activetips, setactivetips] = useState(0);
   const navigate = useNavigate();
 
   const navtoaboutus = () => {
@@ -24,15 +24,15 @@ const Home = () => {
   };
 
   return (
-    <div className='w-full font-montserrat'>
-        <img id = 'herobg' src = {window.innerWidth >= 620? herobs : heross} className='object-cover absolute' />
+    <div className='w-screen font-montserrat overflow-clip'>
+        <img id = 'herobg' src = {window.innerWidth >= 620? herobs : heross} className='object-cover w-full absolute' />
         <Navbar />
         <Hero />
         
         {/* did you know */}
-        <div className='h-64 sm:h-72 lg:h-96 flex flex-col justify-center px-4 md:px-8 sm:px-8 text-secondary space-y-4'>
+        <div className='h-64 sm:h-72 md:h-screen w-full flex flex-col justify-center px-4 md:px-8 sm:px-8 text-secondary space-y-4'>
           <h1 className='font-black text-[24px] md:text-[44px]'>Did You Know?</h1>
-          <p className='font-bold text-[14px] md:text-[24px] sm:w-2/3'>Dyslexia is a very common Learning Difficulty. 1 in 10 children struggle with it. Dyslexia can make it hard for children to perform well in school, but it is very simple to help these children improve.</p>
+          <p className='font-bold text-[14px] md:text-[24px] sm:w-1/2'>Dyslexia is a very common Learning Difficulty. 1 in 10 children struggle with it. Dyslexia can make it hard for children to perform well in school, but it is very simple to help these children improve.</p>
           <button className='w-1/2 h-10 sm:w-1/4 md:h-16 font-bold text-[14px] md:text-[24px] border-secondary text-secondary hover:bg-orange hover:text-white rounded-full flex items-center justify-center' onClick = {navtolearn}>
           <p>Learn More</p>
           <FontAwesomeIcon icon={faChevronRight} className='animate-pulse' />
@@ -41,9 +41,10 @@ const Home = () => {
           </button>
         </div>
 
-        
-        <img src={comsym} className='absolute' />
-        <div className='relative w-full h-72 sm:h-[25rem] lg:h-[60rem] font-montserrat text-white px-4 sm:px-8 flex flex-col justify-center pt-4 overflow-y-auto'>
+        <div className='w-full lg:h-screen sm:h-96 overflow-clip absolute'>
+          <img src={comsym} className='w-full' />
+        </div>
+        <div className='relative w-full h-72 sm:h-[25rem] lg:h-[50rem] font-montserrat text-white px-4 sm:px-8 flex flex-col justify-center pt-4 overflow-y-auto'>
           <h1 className='font-black text-[24px] md:text-[44px]'>Some Common Signs</h1><br/>
           {commonsigns.map((cs, index) => (
             <li key={cs.id} className='flex-shrink-0 font-bold text-[14px] md:text-[24px] leading-relax'>
@@ -51,9 +52,9 @@ const Home = () => {
             </li>
           ))}
         </div>
-        <div className='w-full h-64 max-ss:hidden lg:hidden bg-white absolute' />
+        {/* <div className='w-full h-64 max-ss:hidden lg:hidden bg-white absolute' /> */}
         
-        <div className='h-[70vh] font-montserrat flex flex-col sm:flex-wrap'>
+        <div className='h-[70vh] max-ss:pt-10 font-montserrat flex flex-col sm:flex-wrap'>
           <div className='w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col justify-end'>
 
             {/* message from the therapist */}
@@ -101,17 +102,17 @@ const Home = () => {
           </div>
         </div>
 
-        <img src={footer} className='absolute' />
+        <img src={footer} className='absolute w-full' />
         <div className='w-full h-44 sm:h-[35vh] md:h-screen relative font-montserrat flex items-end pt-12 sm:pt-12'>
           
           {/* Pages */}
-          <ul className='w-1/3 list-none text-[10px] sm:text-[20px] cursor-pointer indent-5 sm:indent-16 pb-4 sm:pb-10'>
+          <ul className='w-1/3 list-none text-[10px] sm:text-[24px] cursor-pointer indent-5 sm:indent-16 pb-4 sm:pb-10'>
               {navlinks.map((nav, index) => (
                 <li
                   key = {nav.id}
                   onClick = {() => setActive(nav.id)}
                   >
-                  <a href = {`${nav.id}`} className={`cursor-pointer text-white font-bold leading-relaxed ${index === navlinks.length -1? "mb-0" : "mb-4"}`}>{nav.title}</a>
+                  <a href = {`${nav.id}`} className={`cursor-pointer text-white font-bold leading-relaxed ${index === navlinks.length -1? "mb-0" : "mb-8"}`}>{nav.title}</a>
                 </li>
               ))}
             </ul>

@@ -7,7 +7,7 @@ import { bg } from './assets'
 const App = () => {
   const location = useLocation();
   return (
-    <div className='w-screen overflow-hidden bg-primary'>
+    <div className='w-screen overflow-hidden bg-white'>
         <Routes>
           <Route exact path = "/" element={<Home />} />
           <Route path = "/instructions" element={<Instructions />} />
