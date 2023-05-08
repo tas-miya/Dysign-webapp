@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image
 import tensorflow as tf
-import cv2
+import cv2 
 import numpy as np
 import pandas as pd
 from scipy.spatial import distance as dist
@@ -16,7 +16,7 @@ from io import BytesIO
 
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "https://iqrasiddiqui.github.io/dysign"}})
+cors = CORS(app)
 
 
 # load the model
