@@ -40,7 +40,7 @@ const Test = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
     try {
-      const response = await fetch('http://localhost:5000/predict', {
+      const response = await fetch('https://flask-production-2c96.up.railway.app/predict', {
         method: 'POST',
         body: formData
       });

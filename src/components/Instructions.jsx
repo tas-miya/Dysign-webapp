@@ -71,8 +71,8 @@ const Instructions = () => {
       <div className={`${page === 0? "flex" : "hidden"} w-full h-screen px-4 md:px-8 flex-col bg-secondary justify-center md:pt-60 items-center space-y-4`}>
         <h1 className='font-black text-[32px] md:text-[44px] text-center text-white sm:w-1/2'>Welcome To DySign, The AI Screener</h1>
         <span className='flex justify-center items-center text-[30px] md:text-[36px]'  onClick={() => setpage(1)} >
-          <div className='w-[32px] md:w-[38px] h-[32px] md:h-[38px] rounded-full bg-yellow animate-ping absolute' />
-          <FontAwesomeIcon icon={faArrowCircleRight} style={{color: "#ffc145"}} className='fa-2xl cursor-pointer'/>
+          <div className='w-[32px] md:w-[38px] h-[32px] md:h-[38px] rounded-full bg-yellow animate-ping absolute cursor-pointer' />
+          <FontAwesomeIcon icon={faArrowCircleRight} style={{color: "#ffc145"}} className='fa-2xl '/>
           {console.log(page)}
         </span>
       </div>
@@ -112,10 +112,15 @@ const Instructions = () => {
           </div>
         </div>
         
-        <span className='flex justify-center items-center text-[30px] sm:text-[40px] sm:pb-20 pb-6'  onClick={navtotest} >
-          <div className='w-[38px] sm:w-[44px] h-[38px] sm:h-[44px] rounded-full bg-pink animate-ping absolute' />
-          <FontAwesomeIcon icon={faArrowCircleRight} style={{color: "#ff6b6c"}} className='fa-xl cursor-pointer'/>
+        <span className='flex justify-center items-center relative text-[30px] sm:text-[40px] sm:pb-20 pb-6 text-pink'  onClick={navtotest} >
+          <div className='w-[38px] sm:w-[44px] h-[38px] sm:h-[44px] rounded-full bg-pink animate-ping absolute cursor-pointer' />
+          <FontAwesomeIcon icon={faArrowCircleRight} style={{color: "#ff6b6c"}} className='fa-xl'/>
         </span>
+        {/* <span className='flex justify-center items-center text-[30px] md:text-[36px]'  onClick={() => setpage(1)} >
+          <div className='w-[32px] md:w-[38px] h-[32px] md:h-[38px] rounded-full bg-yellow animate-ping absolute cursor-pointer' />
+          <FontAwesomeIcon icon={faArrowCircleRight} style={{color: "#ffc145"}} className='fa-2xl '/>
+          {console.log(page)}
+        </span> */}
       </div>
     </div>
   )
